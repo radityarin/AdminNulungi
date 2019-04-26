@@ -60,6 +60,14 @@
           }
         },
         {
+          "client_id": "54786540461-2a0k4v42kp6t69vlhsb64ahvlshf5ouh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rai.adminnulungi",
+            "certificate_hash": "70ad5d658c9c2e7f17c3d625e45a4957927d8b75"
+          }
+        },
+        {
           "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
           "client_type": 3
         }

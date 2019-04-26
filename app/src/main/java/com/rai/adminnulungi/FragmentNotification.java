@@ -14,10 +14,11 @@ public class FragmentNotification extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_notification, container, false);
+        final View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.card_notification, parent, false);
+        return view ;
     }
 
 }
