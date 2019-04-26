@@ -35,8 +35,8 @@ import java.util.UUID;
 
 public class PageRegister extends AppCompatActivity {
 
-    private String nama,alamat,urlfoto,kordinat,notelepon,kebutuhan,kategori,email,password;
-    private EditText edtnama,edtalamat,edtnotelepon,edtemail,edtpassword;
+    private String nama, alamat, urlfoto, kordinat, notelepon, kebutuhan, kategori, email, password;
+    private EditText edtnama, edtalamat, edtnotelepon, edtemail, edtpassword;
     private ImageView uploadfotoproduk;
     private Button daftar;
     private FirebaseAuth auth;
@@ -55,9 +55,9 @@ public class PageRegister extends AppCompatActivity {
         edtemail = findViewById(R.id.email);
         edtpassword = findViewById(R.id.password);
         Spinner inputkategori = findViewById(R.id.spnkategori);
-        String[] tipetempat = new String[]{"Pilih kategori","Panti Jompo","Panti Asuhan","Komunitas","Masjid"};
+        String[] tipetempat = new String[]{"Pilih kategori", "Panti Jompo", "Panti Asuhan", "Komunitas", "Masjid"};
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
-                this,R.layout.spinner_item,tipetempat
+                this, R.layout.spinner_item, tipetempat
         );
         spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
         inputkategori.setAdapter(spinnerArrayAdapter);
