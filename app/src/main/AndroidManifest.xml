@@ -14,6 +14,7 @@
         <activity android:name=".PageRegister"></activity>
         <activity android:name=".PageLogin" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".LandingPage" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
