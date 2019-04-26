@@ -7,25 +7,38 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import com.squareup.picasso.Picasso;
+
+import static android.content.ContentValues.TAG;
 
 public class FragmentHome extends Fragment {
 
-    FirebaseRecyclerAdapter<Berita,FragmentHome.BeritaViewHolder> beritaadapter;
+    FirebaseRecyclerAdapter<Berita, FragmentHome.BeritaViewHolder> beritaadapter;
     DatabaseReference produkRef;
+    DatabaseReference refku;
+    EditText nambahkebutuhan;
+    FirebaseAuth auth;
+
     public FragmentHome() {
         // Required empty public constructor
     }
@@ -34,7 +47,31 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
+        auth = FirebaseAuth.getInstance();
+//
+//        final ImageView kebutuhansaatini = view.findViewById(R.id.kebutuhansaatinigambar);
+//        final TextView kebutuhansaatinitv = view.findViewById(R.id.kebutuhansaatini);
+//
+//
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference mDatabaseRef2 = database.getReference();
+//        mDatabaseRef2.child("Detail Tempat").child(auth.getUid()).child("kebutuhan");
+//
+//
 
+       nambahkebutuhan = view.findViewById(R.id.inputkebutuhan);
+//        refku = FirebaseDatabase.getInstance().getReference().child("Detail Tempat").child(auth.getUid()).child("kebutuhan");
+
+        final Button update = view.findViewById(R.id.kirimkebutuhan);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String kebutuhan = nambahkebutuhan.getText().toString();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference mDatabaseRef = database.getReference();
+                mDatabaseRef.child("Detail Tempat").child(auth.getUid()).child("kebutuhan").setValue(kebutuhan);
+            }
+        });
 
         //======================
 
@@ -67,10 +104,10 @@ public class FragmentHome extends Fragment {
                 holder.view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getContext(),BeritaPage.class);
-                        intent.putExtra("judul",model.getJudul());
-                        intent.putExtra("url",model.getUrlfoto());
-                        intent.putExtra("isi",model.getIsiberita());
+                        Intent intent = new Intent(getContext(), BeritaPage.class);
+                        intent.putExtra("judul", model.getJudul());
+                        intent.putExtra("url", model.getUrlfoto());
+                        intent.putExtra("isi", model.getIsiberita());
                         startActivity(intent);
                     }
                 });
@@ -79,8 +116,8 @@ public class FragmentHome extends Fragment {
         recyclerView.setAdapter(beritaadapter);
 
         //=========================
-        
-        
+
+
         return view;
     }
 
@@ -95,6 +132,7 @@ public class FragmentHome extends Fragment {
         super.onStop();
         beritaadapter.stopListening();
     }
+
     public class BeritaViewHolder extends RecyclerView.ViewHolder {
 
         View view;
@@ -106,7 +144,7 @@ public class FragmentHome extends Fragment {
 
         }
 
-        public void display(String judulberita ,String urlPhoto, String isiberita){
+        public void display(String judulberita, String urlPhoto, String isiberita) {
             TextView judulberitatv = (TextView) view.findViewById(R.id.judulberita);
             judulberitatv.setText(judulberita);
             ImageView fotoberita = (ImageView) view.findViewById(R.id.urlphoto);

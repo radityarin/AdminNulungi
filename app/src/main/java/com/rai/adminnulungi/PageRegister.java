@@ -27,27 +27,26 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-
-import java.io.IOException;
-import java.util.UUID;
 
 public class PageRegister extends AppCompatActivity {
 
-    private String nama, alamat, urlfoto, kordinat, notelepon, kebutuhan, kategori, email, password;
+    private String kategori;
     private EditText edtnama, edtalamat, edtnotelepon, edtemail, edtpassword;
-    private ImageView uploadfotoproduk;
     private Button daftar;
     private FirebaseAuth auth;
-    private StorageReference imageStorage;
-    private final int PICK_IMAGE_REQUEST = 1;
     private ProgressDialog PD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_register);
+
+
+        PD = new ProgressDialog(this);
+        PD.setMessage("Loading...");
+        PD.setCancelable(true);
+        PD.setCanceledOnTouchOutside(false);
+
 
         edtnama = findViewById(R.id.nama);
         edtalamat = findViewById(R.id.inputalamat);
@@ -73,6 +72,7 @@ public class PageRegister extends AppCompatActivity {
             }
         });
 
+        auth = FirebaseAuth.getInstance();
 
         daftar = findViewById(R.id.tomboldaftar);
         daftar.setOnClickListener(new View.OnClickListener() {
@@ -83,9 +83,12 @@ public class PageRegister extends AppCompatActivity {
                 final String notelepon = edtnotelepon.getText().toString();
                 final String email = edtemail.getText().toString();
                 final String password = edtpassword.getText().toString();
-
+                final String urlfoto = "";
+                final String kebutuhan ="";
+                final String kordinat ="";
                 try {
                     if (password.length() > 0 && email.length() > 0) {
+                        PD.show();
                         auth.createUserWithEmailAndPassword(email, password)
                                 .addOnCompleteListener(PageRegister.this, new OnCompleteListener<AuthResult>() {
                                     @Override
@@ -120,3 +123,8 @@ public class PageRegister extends AppCompatActivity {
         });
     }
 }
+
+
+//============================================
+
+
