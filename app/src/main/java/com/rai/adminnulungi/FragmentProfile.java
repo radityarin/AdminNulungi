@@ -28,6 +28,9 @@ import static android.content.ContentValues.TAG;
 
 public class FragmentProfile extends Fragment {
 
+    ImageView ivurl;
+    final String url = "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg";
+
     public FragmentProfile() {
         // Required empty public constructor
     }
@@ -51,7 +54,7 @@ public class FragmentProfile extends Fragment {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("Detail Tempat").child(auth.getUid());
-        final ImageView ivurl = view.findViewById(R.id.gambarpanti);
+        ivurl = view.findViewById(R.id.gambarpanti);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -69,7 +72,6 @@ public class FragmentProfile extends Fragment {
                 kordinat.setText(tempat.getKordinat());
                 notelepon.setText(tempat.getNotelepon());
                 Picasso.get().load(tempat.getUrlfoto()).into(ivurl);
-
             }
 
             @Override
@@ -80,13 +82,11 @@ public class FragmentProfile extends Fragment {
         });
 
 
-
-
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getContext(),LandingPage.class);
+                Intent intent = new Intent(getContext(), LandingPage.class);
                 startActivity(intent);
                 getActivity().finish();
             }
