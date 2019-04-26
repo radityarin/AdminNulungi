@@ -116,32 +116,19 @@
                     android:layout_height="wrap_content"
                     android:text="Kebutuhan saat ini"/>
 
-                <LinearLayout
-                    android:layout_marginHorizontal="16dp"
-                    android:background="#FDFDFD"
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:id="@+id/kebutuhansaatinigambar"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp" />
-                    <TextView
-                        android:id="@+id/kebutuhansaatini"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"/>
-                </LinearLayout>
-
-                <EditText
+                <Spinner
                     android:id="@+id/inputkebutuhan"
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/rounded_edittext"
                     android:layout_height="40dp" />
                 <Button
                     android:id="@+id/kirimkebutuhan"
                     android:layout_marginHorizontal="16dp"
                     android:text="Update kebutuhan"
                     android:textAllCaps="false"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/buttonsolid2"
                     android:textColor="@android:color/white"
                     android:layout_width="match_parent"

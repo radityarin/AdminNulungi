@@ -74,7 +74,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/namaprofile"
+                    android:id="@+id/namapanti"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="64dp"
@@ -85,21 +85,20 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/kota"
+                    android:id="@+id/kategori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="16dp"
-                    android:drawableLeft="@drawable/ic_location_on_black_24dp"
-                    android:text="Malang, Jawa Timur"
+                    android:text="Kategori"
                     android:textAlignment="center" />
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
+            android:id="@+id/gambarpanti"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerHorizontal="true"
@@ -133,6 +132,12 @@
                         android:layout_width="30dp"
                         android:layout_height="40dp"
                         android:src="@drawable/email"/>
+                    <ImageView
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/address"/>
 
                     <ImageView
                         android:layout_gravity="center_horizontal"
@@ -141,18 +146,7 @@
                         android:layout_height="40dp"
                         android:src="@drawable/ktp"/>
 
-                    <ImageView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="1"
-                        android:layout_width="30dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/gender"/>
-                    <ImageView
-                        android:layout_gravity="center_horizontal"
-                        android:layout_weight="1"
-                        android:layout_width="30dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/address"/>
+
                     <ImageView
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
@@ -175,47 +169,7 @@
                         android:text="Email" />
 
                     <TextView
-                        android:id="@+id/emailprofile"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:text="None" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="16dp"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
-
-                    <TextView
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="No KTP" />
-
-                    <TextView
-                        android:id="@+id/noktpprofile"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:text="None" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_marginTop="16dp"
-                        android:layout_height="1dp"
-                        android:background="@android:color/darker_gray"/>
-
-                    <TextView
-                        android:layout_marginTop="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jenis Kelamin" />
-
-                    <TextView
-                        android:id="@+id/jeniskelaminprofil"
+                        android:id="@+id/emailpanti"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -235,7 +189,27 @@
                         android:text="Alamat" />
 
                     <TextView
-                        android:id="@+id/alamatprofil"
+                        android:id="@+id/alamatpanti"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="None" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray"/>
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kordinat" />
+
+                    <TextView
+                        android:id="@+id/kordinatpanti"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -255,7 +229,7 @@
                         android:text="Nomor telepon" />
 
                     <TextView
-                        android:id="@+id/nohpprofile"
+                        android:id="@+id/nopanti"
                         android:layout_marginTop="8dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -31,7 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class PageRegister extends AppCompatActivity {
 
     private String kategori;
-    private EditText edtnama, edtalamat, edtnotelepon, edtemail, edtpassword;
+    private EditText edtnama, edtalamat, edtnotelepon, edtemail, edtpassword, edtkordinat;
     private Button daftar;
     private FirebaseAuth auth;
     private ProgressDialog PD;
@@ -53,6 +53,7 @@ public class PageRegister extends AppCompatActivity {
         edtnotelepon = findViewById(R.id.notelepon);
         edtemail = findViewById(R.id.email);
         edtpassword = findViewById(R.id.password);
+        edtkordinat = findViewById(R.id.inputkordinat);
         Spinner inputkategori = findViewById(R.id.spnkategori);
         String[] tipetempat = new String[]{"Pilih kategori", "Panti Jompo", "Panti Asuhan", "Komunitas", "Masjid"};
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
@@ -85,7 +86,7 @@ public class PageRegister extends AppCompatActivity {
                 final String password = edtpassword.getText().toString();
                 final String urlfoto = "";
                 final String kebutuhan ="";
-                final String kordinat ="";
+                final String kordinat = edtkordinat.getText().toString();
                 try {
                     if (password.length() > 0 && email.length() > 0) {
                         PD.show();

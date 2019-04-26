@@ -11,9 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -36,7 +39,7 @@ public class FragmentHome extends Fragment {
     FirebaseRecyclerAdapter<Berita, FragmentHome.BeritaViewHolder> beritaadapter;
     DatabaseReference produkRef;
     DatabaseReference refku;
-    EditText nambahkebutuhan;
+    String nambahkebutuhan;
     FirebaseAuth auth;
 
     public FragmentHome() {
@@ -48,25 +51,31 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_fragment_home, container, false);
         auth = FirebaseAuth.getInstance();
-//
-//        final ImageView kebutuhansaatini = view.findViewById(R.id.kebutuhansaatinigambar);
-//        final TextView kebutuhansaatinitv = view.findViewById(R.id.kebutuhansaatini);
-//
-//
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference mDatabaseRef2 = database.getReference();
-//        mDatabaseRef2.child("Detail Tempat").child(auth.getUid()).child("kebutuhan");
-//
-//
 
-       nambahkebutuhan = view.findViewById(R.id.inputkebutuhan);
-//        refku = FirebaseDatabase.getInstance().getReference().child("Detail Tempat").child(auth.getUid()).child("kebutuhan");
+        Spinner inputkebutuhan = view.findViewById(R.id.inputkebutuhan);
+        String [] kebutuhan = new String[]{"Pilih Kebutuhan","Pakaian","Furnitur","Elektronik","Buku"};
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
+                getContext(),R.layout.spinner_item,kebutuhan
+        );
+        spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+        inputkebutuhan.setAdapter(spinnerArrayAdapter);
+        inputkebutuhan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                nambahkebutuhan = (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         final Button update = view.findViewById(R.id.kirimkebutuhan);
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String kebutuhan = nambahkebutuhan.getText().toString();
+                final String kebutuhan = nambahkebutuhan;
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference mDatabaseRef = database.getReference();
                 mDatabaseRef.child("Detail Tempat").child(auth.getUid()).child("kebutuhan").setValue(kebutuhan);
