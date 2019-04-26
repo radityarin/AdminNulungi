@@ -59,11 +59,10 @@
                 android:layout_height="40dp"
                 android:text="Konfirmasi"
                 android:textAllCaps="false"
-                android:background="@drawable/buttonsolid2"
+                android:background="@drawable/buttonsolid"
                 android:gravity="center_vertical|center_horizontal"
                 android:textColor="#ffffff"
                 android:textSize="16dp" />
-
 
         </LinearLayout>
 
