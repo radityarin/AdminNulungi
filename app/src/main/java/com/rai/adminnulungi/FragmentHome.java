@@ -41,7 +41,7 @@ public class FragmentHome extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("berita");
 
@@ -82,8 +82,18 @@ public class FragmentHome extends Fragment {
         
         
         return view;
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        beritaadapter.startListening();
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        beritaadapter.stopListening();
     }
     public class BeritaViewHolder extends RecyclerView.ViewHolder {
 

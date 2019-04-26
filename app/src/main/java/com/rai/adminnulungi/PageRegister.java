@@ -78,11 +78,11 @@ public class PageRegister extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nama = edtnama.getText().toString();
-                alamat = edtalamat.getText().toString();
-                notelepon = edtnotelepon.getText().toString();
-                email = edtemail.getText().toString();
-                password = edtpassword.getText().toString();
+                final String nama = edtnama.getText().toString();
+                final String alamat = edtalamat.getText().toString();
+                final String notelepon = edtnotelepon.getText().toString();
+                final String email = edtemail.getText().toString();
+                final String password = edtpassword.getText().toString();
 
                 try {
                     if (password.length() > 0 && email.length() > 0) {
