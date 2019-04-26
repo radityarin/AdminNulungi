@@ -72,16 +72,8 @@ public class PageRegister extends AppCompatActivity {
 
             }
         });
-        uploadfotoproduk = (ImageView) findViewById(R.id.uploadfotoproduk);
-        uploadfotoproduk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
-            }
-        });
+
+
         daftar = findViewById(R.id.tomboldaftar);
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +98,12 @@ public class PageRegister extends AppCompatActivity {
                                             Log.v("error", task.getResult().toString());
                                         } else {
                                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                            DatabaseReference myRef = database.getReference("Detail Pengguna").child(auth.getUid());
-//                                            Profil profil = new Profil(auth.getUid(),nama,email,noktp,nohp,jeniskelamin,alamat,kota);
-//                                              myRef.setValue(profil);
-//                                            Intent intent = new Intent(SignUpPage.this, MainActivity.class);
-//                                            startActivity(intent);
-//                                            finish();
+                                            DatabaseReference myRef = database.getReference("Detail Tempat").child(auth.getUid());
+                                            Tempat tempat = new Tempat(auth.getUid(),email,alamat,kategori,nama,notelepon,urlfoto,kebutuhan,kordinat);
+                                            myRef.setValue(tempat);
+                                            Intent intent = new Intent(PageRegister.this, MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
                                         }
                                     }
                                 });
@@ -126,82 +118,5 @@ public class PageRegister extends AppCompatActivity {
                 }
             }
         });
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK) {
-            final Uri imageUri = data.getData();
-            Bitmap bitmap = null;
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            uploadfotoproduk.setImageBitmap(bitmap);
-
-//membuat folder di firebase storage
-            final StorageReference filepath = imageStorage.child("Tempat").child(auth.getUid()).child(UUID.randomUUID().toString() + ".jpg");
-
-            Button button = (Button) findViewById(R.id.tomboldaftar);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    PD = new ProgressDialog(PageRegister.this);
-                    PD.setMessage("Loading...");
-                    PD.setCancelable(true);
-                    PD.setCanceledOnTouchOutside(false);
-                    PD.show();
-                    filepath.putFile(imageUri).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                        @Override
-                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                            if (!task.isSuccessful()) {
-                                throw task.getException();
-                            }
-
-                            // Continue with the task to get the download URL
-                            return filepath.getDownloadUrl();
-                        }
-                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Uri> task) {
-                            if (task.isSuccessful()) {
-
-                                //mendapatkan link foto
-                                Uri downloadUri = task.getResult();
-                                urlfoto = downloadUri.toString();
-                                DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
-                                String key = myRef.push().getKey();
-
-//                                Tempat tempat = new Tempat(auth.getUid(),email,alamat,kategori,nama,notelepon)
-//                                myRef.child("List Barang Donasi").child(key).setValue(donasi).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        if (task.isSuccessful()) {
-//                                            PD.dismiss();
-//                                            alamattempat = tvalamattempat.getText().toString();
-//                                            Intent intent = new Intent(PageRegister.this, MainActivity.class);
-//                                            intent.putExtra("metode",metode);
-//                                            intent.putExtra("alamat",alamattempat);
-//                                            intent.putExtra("kordinat",kordinat);
-//                                            intent.putExtra("tanggal",tanggaldonasi);
-//                                            startActivity(intent);
-//                                            finish();
-//                                        } else {
-//                                            Toast.makeText(PageRegister.this, "Upload gagal, coba lagi", Toast.LENGTH_LONG).show();
-//                                        }
-//                                    }
-//                                });
-                            }
-                        }
-                    });
-                }
-            });
-
-
-        }
     }
 }
