@@ -59,7 +59,7 @@
                 android:layout_height="40dp"
                 android:text="Konfirmasi"
                 android:textAllCaps="false"
-                android:background="@drawable/buttonsolid"
+                android:background="@drawable/buttonkonfirm"
                 android:gravity="center_vertical|center_horizontal"
                 android:textColor="#ffffff"
                 android:textSize="16dp" />
