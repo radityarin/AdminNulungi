@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#065189</color>
+    <color name="colorPrimaryDark">#065189</color>
+    <color name="colorAccent">#065189</color>
+    <color name="Transparent">#00000000</color>
+    <color name="colorBackgroundAzure">#fbfbfb</color>
+    <color name="bakalborder">#737984</color>
+</resources>

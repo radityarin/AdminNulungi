@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gambar0201"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    tools:context=".PageLogin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:layout_marginBottom="32dp"
+            android:textColor="@android:color/black"
+            android:textSize="48dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/emaillogin"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/buttonborder"
+            android:hint="Email"
+            android:paddingHorizontal="16dp" />
+
+        <EditText
+            android:id="@+id/passwordlogin"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/buttonborder"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingHorizontal="16dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Transparent"
+            android:text="Lupa Password?"
+            android:textAlignment="textEnd"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonlogin"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/buttonborder"
+            android:text="Masuk"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="24dp" />
+
+        <Button
+            android:id="@+id/daftar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonlogin"
+            android:textSize="16dp"
+            android:background="@color/Transparent"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/white"
+            android:text="Belum memiliki akun? Daftar disini"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</RelativeLayout>

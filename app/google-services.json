@@ -1,0 +1,130 @@
+{
+  "project_info": {
+    "project_number": "54786540461",
+    "firebase_url": "https://nulungi-1a8eb.firebaseio.com",
+    "project_id": "nulungi-1a8eb",
+    "storage_bucket": "nulungi-1a8eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54786540461:android:8ca00c99895dd557",
+        "android_client_info": {
+          "package_name": "com.example.adminnulungi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54786540461-0ihgb038pf1spagovloch2jlk99i9j77.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminnulungi",
+            "certificate_hash": "70ad5d658c9c2e7f17c3d625e45a4957927d8b75"
+          }
+        },
+        {
+          "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAX3I2H4lbEba9AECC02G-4cgG2qqYX6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54786540461:android:77719adc11a61d88",
+        "android_client_info": {
+          "package_name": "com.rai.adminnulungi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54786540461-6jjmqtljtbrgi8es8k6b75sv28aooeam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rai.adminnulungi",
+            "certificate_hash": "123e569823164fd29adaef640b3c9d851ed44418"
+          }
+        },
+        {
+          "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAX3I2H4lbEba9AECC02G-4cgG2qqYX6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54786540461:android:b5baf9eb2749444a",
+        "android_client_info": {
+          "package_name": "com.rai.nulungi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54786540461-a60pai5vp00v00cgf18ja265f57fcp4v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rai.nulungi",
+            "certificate_hash": "70ad5d658c9c2e7f17c3d625e45a4957927d8b75"
+          }
+        },
+        {
+          "client_id": "54786540461-e2srtdg0cc620v2uma7he9749qi79sum.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rai.nulungi",
+            "certificate_hash": "123e569823164fd29adaef640b3c9d851ed44418"
+          }
+        },
+        {
+          "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAX3I2H4lbEba9AECC02G-4cgG2qqYX6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54786540461-ns3r522l7arva3uggq9stadtq33sdg4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
