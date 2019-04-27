@@ -1,5 +1,6 @@
 package com.rai.adminnulungi;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ public class PageLogin extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     private Button btnMasuk, btnBack;
-
+    private ProgressDialog PD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,11 @@ public class PageLogin extends AppCompatActivity {
             public void onClick(View view) {
                 final String email = inputEmail.getText().toString();
                 final String password = inputPassword.getText().toString();
-
+                PD = new ProgressDialog(PageLogin.this);
+                PD.setMessage("Loading...");
+                PD.setCancelable(true);
+                PD.setCanceledOnTouchOutside(false);
+                PD.show();
                 try {
 
                     if (password.length() > 0 && email.length() > 0) {
@@ -44,6 +49,7 @@ public class PageLogin extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
+                                            PD.dismiss();
                                             // Sign in success, update UI with the signed-in user's information
                                             FirebaseUser user = auth.getCurrentUser();
                                             Toast.makeText(PageLogin.this, "BERHASIL", Toast.LENGTH_SHORT).show();

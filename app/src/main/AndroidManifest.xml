@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/logonew"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PageRegister"></activity>
+        <activity android:name=".PageSumbangan"></activity>
+        <activity android:name=".PageRegister" />
         <activity android:name=".PageLogin" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LandingPage" />
@@ -22,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

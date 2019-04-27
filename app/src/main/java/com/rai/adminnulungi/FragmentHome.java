@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -79,6 +80,7 @@ public class FragmentHome extends Fragment {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference mDatabaseRef = database.getReference();
                 mDatabaseRef.child("Detail Tempat").child(auth.getUid()).child("kebutuhan").setValue(kebutuhan);
+                Toast.makeText(getContext(),"Kebutuhan berhasil diubah",Toast.LENGTH_LONG).show();
             }
         });
 
@@ -87,7 +89,7 @@ public class FragmentHome extends Fragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         produkRef = FirebaseDatabase.getInstance().getReference().child("berita");
 
